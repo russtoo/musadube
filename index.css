@@ -122,6 +122,8 @@ p {
 section {
 	position: relative;
 	overflow: hidden;
+    max-height: 100vh;
+    
 }
 
 img {
