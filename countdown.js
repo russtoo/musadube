@@ -195,6 +195,17 @@ let rebo = function rebo() {
   }
 }
 
+function show() {
+  document.getElementById("headline").style.display = "none";
+  document.getElementById("img").style.display = "none";
+  document.getElementById("countdown").style.display = "none";
+  document.getElementById("content").style.display = "none";
+  let show = document.getElementById('gift');
+  show.style.display = 'block'
+}
+
+document.getElementById('button').addEventListener('click', show);
+
 (function () {
     const second = 1000,
           minute = second * 60,
@@ -208,7 +219,7 @@ let rebo = function rebo() {
         mm = String(today.getMonth() + 1).padStart(2, "0"),
         yyyy = today.getFullYear(),
         nextYear = yyyy + 1,
-        dayMonth = "01/13/",
+        dayMonth = "01/19/",
         birthday = dayMonth + yyyy;
     
     today = mm + "/" + dd + "/" + yyyy;
@@ -232,7 +243,6 @@ let rebo = function rebo() {
           if (distance < 0) {
             document.getElementById("headline").style.display = "none";
             document.getElementById("img").style.display = "none";
-            document.getElementById("content").style.padding = "0";
             document.getElementById("countdown").style.display = "none";
             document.getElementById("content").style.display = "block";
             clearInterval(x);
