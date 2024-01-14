@@ -137,7 +137,6 @@ img {
   color: #F8F4EC;
   margin: 0 auto;
   text-align: center;
-  padding-bottom: 8em;
 }
 
 
@@ -149,8 +148,8 @@ h2 {
 
 #countdown {
   background-color: #864AF9;
-  padding: 1em;
   margin: 1em 2em;
+  padding: 1em 0;
 }
 li {
   display: inline-block;
