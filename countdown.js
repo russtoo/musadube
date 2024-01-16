@@ -1,3 +1,7 @@
+import confetti from "https://cdn.skypack.dev/canvas-confetti";
+
+let can = confetti
+
 let rebo = function rebo() {
   var c = document.getElementById("c");
   var ctx = c.getContext("2d");
@@ -195,18 +199,95 @@ let rebo = function rebo() {
   }
 }
 
-function show() {
-  document.getElementById("headline").style.display = "none";
-  document.getElementById("img").style.display = "none";
-  document.getElementById("countdown").style.display = "none";
-  document.getElementById("content").style.display = "none";
-  let show = document.getElementById('gift');
-  show.style.display = 'block'
+
+
+function rain() {
+  const doItNow = (evt, hard) => {
+    const direction = Math.sign(lastX - evt.clientX);
+    lastX = evt.clientX;
+    const particleCount = hard ? r(122, 245) : r(2, 15);
+    can({
+      particleCount,
+      angle: r(90, 90 + direction * 30),
+      spread: r(45, 80),
+      origin: {
+        x: evt.clientX / window.innerWidth,
+        y: evt.clientY / window.innerHeight
+      }
+    });
+  };
+  const doIt = (evt) => {
+    doItNow(evt, false);
+  };
+  
+  const doItHard = (evt) => {
+    doItNow(evt, true);
+  };
+  
+  let lastX = 0;
+  const butt = document.querySelector("body");
+  butt.addEventListener("mousemove", doIt);
+  butt.addEventListener("click", doItHard);
+  
+  function r(mi, ma) {
+    return parseInt(Math.random() * (ma - mi) + mi);
+  }
+  
 }
 
+const Confettiful = function(el) {
+  this.el = el;
+  this.containerEl = null;
+  
+  this.confettiFrequency = 3;
+  this.confettiColors = ['#fce18a', '#ff726d', '#b48def', '#f4306d'];
+  this.confettiAnimations = ['slow', 'medium', 'fast'];
+  
+  this._setupElements();
+  this._renderConfetti();
+};
+
+Confettiful.prototype._setupElements = function() {
+  const containerEl = document.createElement('div');
+  const elPosition = this.el.style.position;
+  
+  if (elPosition !== 'relative' || elPosition !== 'absolute') {
+    this.el.style.position = 'relative';
+  }
+  
+  containerEl.classList.add('confetti-container');
+  
+  this.el.appendChild(containerEl);
+  
+  this.containerEl = containerEl;
+};
+
+Confettiful.prototype._renderConfetti = function() {
+  this.confettiInterval = setInterval(() => {
+    const confettiEl = document.createElement('div');
+    const confettiSize = (Math.floor(Math.random() * 3) + 7) + 'px';
+    const confettiBackground = this.confettiColors[Math.floor(Math.random() * this.confettiColors.length)];
+    const confettiLeft = (Math.floor(Math.random() * this.el.offsetWidth)) + 'px';
+    const confettiAnimation = this.confettiAnimations[Math.floor(Math.random() * this.confettiAnimations.length)];
+    
+    confettiEl.classList.add('confetti', 'confetti--animation-' + confettiAnimation);
+    confettiEl.style.left = confettiLeft;
+    confettiEl.style.width = confettiSize;
+    confettiEl.style.height = confettiSize;
+    confettiEl.style.backgroundColor = confettiBackground;
+    
+    confettiEl.removeTimeout = setTimeout(function() {
+      confettiEl.parentNode.removeChild(confettiEl);
+    }, 3000);
+    
+    this.containerEl.appendChild(confettiEl);
+  }, 25);
+};
 
 
-//document.getElementById('button').addEventListener('click', show);
+
+
+
 
 (function () {
     const second = 1000,
@@ -244,11 +325,11 @@ function show() {
           //do something later when date is reached
           if (distance < 0) {
             document.getElementById("headline").style.display = "none";
-            document.getElementById("img").style.display = "none";
+            document.getElementById("words").style.display = "none";
             document.getElementById("countdown").style.display = "none";
             document.getElementById("content").style.display = "block";
             clearInterval(x);
-            return rebo;
+            window.confettiful = new Confettiful(document.querySelector('.js-container'));
           }
           //seconds
         }, 0)
