@@ -41,7 +41,7 @@ h4 {
 .card:before {
 	content:'';
 	position: absolute;
-	top: -5px;
+	top: -4px;
 	left: 0;
 	width: 100%;
 	height: 5px;
@@ -54,7 +54,7 @@ h4 {
 	content: '';
 	position: absolute;
 	top: 0;
-	right: -5px;
+	right: -1px;
 	width: 5px;
 	height: 100%;
 	background: #92A29C;
@@ -91,12 +91,17 @@ h4 {
     align-items: center;
 }
 
-.card .imgBox img {
-	width: 60%;
-    height: fit-content;
-    background-color: #F5F5F5;
-    box-shadow: 2px 2px 10px #888888;
-    padding: 0.5em 0.5em 2.5em;
+.card .imgBox span {
+	text-shadow:rgba(240, 46, 170, 1) -2px 2px, #864AF9 2px -2px ;
+	font-family: monospace;
+	font-weight: 300;
+	text-transform: lowercase;
+	font-size: calc(2rem + 1vw);
+	text-align: center;
+	margin: 0;
+	color: #F8F4EC;
+	letter-spacing: 0.4rem;
+	padding: 1em 1em 0.5em 1em;
     justify-content: center;
 }
 
@@ -123,7 +128,7 @@ h4 {
 	top: 0;
 	left: 0;
 	box-sizing: border-box;
-	padding: 0 0 0 10px;
+	padding: 10px 0 10px 10px;
 	z-index: -1;
 	margin: 0;
 }
@@ -132,7 +137,18 @@ h4 {
 	font-size: 15px;
 	line-height: 5px;
 	transform: rotate(-10deg);
-	padding: 0 0 0 0px;
+	padding-left: 1em;
+}
+
+.card .details img {
+	width: 30%;
+    height: fit-content;
+    background-color: #F5F5F5;
+    box-shadow: 2px 2px 10px #888888;
+    padding: 0.3em 0.3em 1.2em;
+    justify-content: center;
+	transform: rotate(-9deg);
+	margin-left: 6em;
 }
 
 .card .details h4 {
@@ -140,5 +156,5 @@ h4 {
 }
 
 .text-right {
-	text-align: right;
+	text-align: center;
 }
