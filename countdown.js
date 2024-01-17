@@ -302,7 +302,7 @@ Confettiful.prototype._renderConfetti = function() {
         mm = String(today.getMonth() + 1).padStart(2, "0"),
         yyyy = today.getFullYear(),
         nextYear = yyyy + 1,
-        dayMonth = "01/17/",
+        dayMonth = "01/19/",
         birthday = dayMonth + yyyy;
     
     today = mm + "/" + dd + "/" + yyyy;
