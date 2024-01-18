@@ -72,7 +72,7 @@ img {
 }
 
 .shake {
-  animation: shake 0.5s ease-in-out 1;
+  animation: shake 0.5s ease-in-out infinite;
 }
 
 @keyframes shake {
@@ -96,12 +96,12 @@ h2 {
 
 .button-59 {
   color: #F8F4EC;
-  font-size: 0.3em;
+  font-size: 0.2em;
   font-family: monospace;
   text-shadow: none;
   text-decoration: none;
   border: 1px solid #F8F4EC;
-  padding: 10px 10px;
+  padding: 10px 20px;
 }
 
 #countdown {
@@ -326,10 +326,10 @@ li span {
     justify-content: center;
 }
 
-.card .imgBox .text {
+.card  .text {
     text-align: center;
     margin-top: -2em;
-    color: rgb(41, 41, 41);
+    color: #864AF9;
     font-size: larger;
     font-family: 'Lobster', sans-serif;
 }
@@ -352,13 +352,15 @@ li span {
 	padding: 0 0 0 10px;
 	z-index: -1;
 	margin: 0;
+  color: #864AF9;
 }
 
 .card .details p {
 	font-size: 15px;
 	line-height: 5px;
-	transform: rotate(-10deg);
+	transform: rotate(-15deg);
 	padding: 0 0 0 1em;
+  color: #864AF9;
 }
 
 .card .details img {
