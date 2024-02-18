@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+svg {
+  position: absolute;
+  inset: 0;
+}
+
+svg > text > textPath {
+  white-space: pre;
+  font-family: sans-serif;
+  font-weight: bold;
+}

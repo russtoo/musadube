@@ -1,0 +1,71 @@
+:root {
+    --num-size: 2em;
+    --word-size: .5em;
+    --pad-primary: .3em;
+}
+
+@font-face {
+    font-family: clark;
+    src: url('../otf/Clack-Cursive.otf');
+}
+
+#title {
+    width: 6.6em;
+    margin: 1em auto;
+    font-family: monospace;
+    font-size: 1.4em;
+
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    padding: 1em;
+    font-family: monospace;
+    font-size: var(--num-size);
+    padding: var(--pad-primary);
+}
+li div {
+    font-size: var(--word-size);
+}
+
+/* VERTICAL DESIGN */
+@media screen and (max-width: 767px) {
+    ul {
+        text-align: center;
+        width: 100%;
+        height: 10vh;
+       
+    }
+    li {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+    ul {
+        text-align: center;
+    }
+    li {
+        display: block;
+    }
+    li div {
+        display: inline;
+    }
+}
+
+/* HORIZONTAL DESIGN */
+@media screen and (min-width: 1024px) {
+    ul {
+        text-align: center;
+    }
+    li {
+        display: inline-block;
+    }
+    li div {
+        display: block;
+    }
+}
